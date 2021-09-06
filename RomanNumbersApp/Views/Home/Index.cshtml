@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Adding Roman Numerals</p>
+    <form asp-controller="Home" asp-action="add" method="post">
+
+        <span>Enter 1st Number : </span> <input id="Text1" type="text" name="txtFirst" onkeypress="return character(event)" /> <br /><br />
+        <span>Enter 2nd Number : </span> <input id="Text1" type="text" name="txtSecond" onkeypress="return character(event)"/> <br /><br />
+        <input id="Submit1" type="submit" value="add" />
+    </form>
+
+    <span>Sum of two numbers : </span><h2>@ViewBag.SumResult</h2>
+</div>
+<script language="javascript">
+   function character(evt)
+    {
+            evt = (evt) ? evt : event;
+    var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+    ((evt.which) ? evt.which : 0));
+    if (charCode > 31 && (charCode < 65 || charCode > 90) &&
+    (charCode < 97 || charCode > 122)) {
+            alert("Enter only characters");
+     return false;
+    }
+     return true;
+    }
+</script>
+    
